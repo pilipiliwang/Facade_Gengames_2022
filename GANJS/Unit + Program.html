@@ -27,7 +27,7 @@
 <!--ONNX-->
   <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
 <!--tensorflow-->
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+<!--  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>-->
 
        <!--  自己写的JS-->
   <script src="sketch.js"></script>
@@ -88,11 +88,16 @@
 
     </div>
 
+
+ <center>
     <div id="app">
-    <div id="input"></div>
-<!-- 右侧的输出画布-->
-      <img id="output" src="images/blank.png">
+      <div id="input"> </div>
+
+      <canvas id="output"> </canvas>
+
     </div>
+ </center>
+
 
     <div id="buttons">
       <button class="btn" id="cancelBtn">Cancel</button>
@@ -104,9 +109,10 @@
 
   </div>
 
+ <center>
   <div id="Stats-output"></div>
   <div id="WebGL-output"></div>
-
+ </center>
 
  </center>
 </body>

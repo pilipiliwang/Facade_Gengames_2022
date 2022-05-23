@@ -47,8 +47,8 @@ div{
 }
 
 img{
-  height: 512px;
-  width: 512px;
+  height: 256px;
+  width: 256px;
   box-shadow: none !important;
 }
 
@@ -90,10 +90,14 @@ canvas{
 
 }
 
+
+
+
+
 #output{
   border: 2px solid rgb(224, 224, 224);
-  height: 512px;
-  width: 512px;
+  height: 256px;
+  width: 256px;
 }
 
 /*设置圆形按钮和文字参数*/
