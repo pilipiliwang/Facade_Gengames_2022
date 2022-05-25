@@ -347,7 +347,7 @@ function transfer() {
 
   var image = new Image();
   image.onload = function() {
-      ctx.drawImage(image, 0, 0, SIZE*2, SIZE*2, 0, 0, 260, 260);
+      ctx.drawImage(image, 0, 0, SIZE, SIZE*2, 0, 0, 300, 300);
   };
   image.src = "data:image/jpeg;base64,"+responseString;
 }
