@@ -1,5 +1,7 @@
+// import * as THREE from 'https://unpkg.com/browse/three@0.140.2/build/three.module.js';
+// import { OrbitControls } from 'https://unpkg.com/three@0.140.2/examples/jsm/controls/OrbitControls.js';
+// import { OrbitControls } from 'https://unpkg.com/three@0.140.2/examples/jsm/controls/OrbitControls.js';
 let transZ,cube,thick,geometry,route,cubeTexture,colormaterial,texmaterial,draw_width,draw_height,draw_positionX,draw_positionY,scene, camera, renderer, arrowLineTexture, flowingLineTexture, stats, controls, clock;
-
 
 //设置尺寸
 const width = 1024;
@@ -11,9 +13,9 @@ let tranZ;
 //scene
 function initScene() {
   scene = new THREE.Scene();
-scene.add(new THREE.AxesHelper(50)); //添加坐标轴辅助线
+  scene.add(new THREE.AxesHelper(50)); //添加坐标轴辅助线
   //用一张图加载为纹理作为场景背景
-  scene.background = new THREE.TextureLoader().load('images/street1024x512.jpg'); //载入背景
+  scene.background = new THREE.TextureLoader().load('static/images/street1024x512.jpg'); //载入背景
 // scene.background = new THREE.Color("rgb(239,238,238)");//背景为纯色
 
 }
@@ -49,36 +51,36 @@ function drawBoxGeometry(inputlist,route,thick,transZ,label){
   draw_positionY = (inputlist[1]+inputlist[3])/2/rate;
 
     //创建几何体
-geometry = new THREE.BoxGeometry(draw_width,draw_height,thick);
-    //创建材质
-// route = 'images/ACT (49).jpg'; //材质文件路径
-cubeTexture = new THREE.TextureLoader().load(route);
-    texmaterial = new THREE.MeshBasicMaterial({map: cubeTexture});
-    // texmaterial = new THREE.MeshBasicMaterial({color:'rgb(13,56,230)'}) //测试label颜色
-colormaterial = new THREE.MeshBasicMaterial({color:'rgb(196,196,196)'});//设置其他面的颜色
+  geometry = new THREE.BoxGeometry(draw_width,draw_height,thick);
+      //创建材质
+  // route = 'static/images/ACT (49).jpg'; //材质文件路径
+  cubeTexture = new THREE.TextureLoader().load(route);
+      texmaterial = new THREE.MeshBasicMaterial({map: cubeTexture});
+      // texmaterial = new THREE.MeshBasicMaterial({color:'rgb(13,56,230)'}) //测试label颜色
+  colormaterial = new THREE.MeshBasicMaterial({color:'rgb(196,196,196)'});//设置其他面的颜色
 
-var material = [
-  new THREE.MeshBasicMaterial(colormaterial),
-  new THREE.MeshBasicMaterial(colormaterial),
-  new THREE.MeshBasicMaterial(colormaterial),
-  new THREE.MeshBasicMaterial(colormaterial),
-  new THREE.MeshBasicMaterial(texmaterial),
-  new THREE.MeshBasicMaterial(colormaterial),
-]
-//创建cube
-    cube = new THREE.Mesh( geometry, material );
-//cube位置,y轴是算出来的偏移
-cube.position.set(draw_positionX,-draw_positionY,0);
-    // cube.position.set(0,0,0)
-cube.translateZ(transZ);
+  var material = [
+    new THREE.MeshBasicMaterial(colormaterial),
+    new THREE.MeshBasicMaterial(colormaterial),
+    new THREE.MeshBasicMaterial(colormaterial),
+    new THREE.MeshBasicMaterial(colormaterial),
+    new THREE.MeshBasicMaterial(texmaterial),
+    new THREE.MeshBasicMaterial(colormaterial),
+  ]
+  //创建cube
+      cube = new THREE.Mesh( geometry, material );
+  //cube位置,y轴是算出来的偏移
+  cube.position.set(draw_positionX,-draw_positionY,0);
+      // cube.position.set(0,0,0)
+  cube.translateZ(transZ);
 
-    //命名cube
-    cube.name = label
+      //命名cube
+      cube.name = label
 
-    //加载cube
-scene.add( cube );
-    //把所有的mesh存在cubelist里
-    cubelist.push(cube);
+      //加载cube
+  scene.add( cube );
+      //把所有的mesh存在cubelist里
+      cubelist.push(cube);
 
 } //drawBoxGeometry的大括号
 
@@ -122,35 +124,35 @@ function shapecutted(inputlist,shape_coored) {
 
 
   // redraw之前的绘制路径，当下路径砖墙不作绘制
-    if(cutdraw == false){
-      for (i = 0; i < shapes_coord.length; i++) {
-      //其他布尔形状的坐标:shapes_coord[i][0] -- 0,shapes_coord[i][1]--1,shapes_coord[i][2],shapes_coord[i][3]; /x_a,y_a,mouseX-x_a,mouseY-y_a
-        const drawmouseX = shapes_coord[i][2]+shapes_coord[i][0];
-        const drawmouseY = shapes_coord[i][3]+shapes_coord[i][1];
-        const cutdraw_x0 = shapes_coord[i][0] / rate; //起点x
-        const cutdraw_y0 = shapes_coord[i][1] / rate; //起点y
-        const cutdraw_x1 = shapes_coord[i][0] / rate;
-        const cutdraw_y1 = drawmouseY / rate;
-        const cutdraw_x2 = drawmouseX / rate;
-        const cutdraw_y2 = drawmouseY / rate;
-        const cutdraw_x3 = drawmouseX / rate;
-        const cutdraw_y3 = shapes_coord[i][1] / rate;
+  if(cutdraw == false){
+    for (i = 0; i < shapes_coord.length; i++) {
+    //其他布尔形状的坐标:shapes_coord[i][0] -- 0,shapes_coord[i][1]--1,shapes_coord[i][2],shapes_coord[i][3]; /x_a,y_a,mouseX-x_a,mouseY-y_a
+      const drawmouseX = shapes_coord[i][2]+shapes_coord[i][0];
+      const drawmouseY = shapes_coord[i][3]+shapes_coord[i][1];
+      const cutdraw_x0 = shapes_coord[i][0] / rate; //起点x
+      const cutdraw_y0 = shapes_coord[i][1] / rate; //起点y
+      const cutdraw_x1 = shapes_coord[i][0] / rate;
+      const cutdraw_y1 = drawmouseY / rate;
+      const cutdraw_x2 = drawmouseX / rate;
+      const cutdraw_y2 = drawmouseY / rate;
+      const cutdraw_x3 = drawmouseX / rate;
+      const cutdraw_y3 = shapes_coord[i][1] / rate;
 
-        //  // 再画其他小的，顺时针（镜像）
-        // path.moveTo(cutdraw_x0, -cutdraw_y0);
-        // path.lineTo(cutdraw_x1, -cutdraw_y1);
-        // path.lineTo(cutdraw_x2, -cutdraw_y2);
-        // path.lineTo(cutdraw_x3, -cutdraw_y3);
-        // //
-          //逆时针(镜像)
-        path.moveTo(cutdraw_x0, -cutdraw_y0);
-        path.lineTo(cutdraw_x3, -cutdraw_y3);
-        path.lineTo(cutdraw_x2, -cutdraw_y2);
-        path.lineTo(cutdraw_x1, -cutdraw_y1);
-        // console.log(i)
-        // console.log(path)
+      //  // 再画其他小的，顺时针（镜像）
+      // path.moveTo(cutdraw_x0, -cutdraw_y0);
+      // path.lineTo(cutdraw_x1, -cutdraw_y1);
+      // path.lineTo(cutdraw_x2, -cutdraw_y2);
+      // path.lineTo(cutdraw_x3, -cutdraw_y3);
+      // //
+        //逆时针(镜像)
+      path.moveTo(cutdraw_x0, -cutdraw_y0);
+      path.lineTo(cutdraw_x3, -cutdraw_y3);
+      path.lineTo(cutdraw_x2, -cutdraw_y2);
+      path.lineTo(cutdraw_x1, -cutdraw_y1);
+      // console.log(i)
+      // console.log(path)
 
-      }
+    }
   }
   cutdraw = true;
 
