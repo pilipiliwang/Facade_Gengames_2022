@@ -1,4 +1,5 @@
 const SIZE = 256; //设置左边图片的画布大小
+let responseString;
 
 //变量
 let outputCanvas,inputlist,uploadBtn,imgroute, inputImg, currentImg, inputCanvas, output, statusMsg, pix2pix, clearBtn, transferBtn, currentColor, currentStroke,label;
@@ -338,10 +339,17 @@ function transfer() {
 
   var outString;
   var outImInf = inference(base64StringIn);
-  //window.console.log(responseString);
+  // window.console.log(responseString);
 
   const outIm = document.getElementById("output");
-  outIm.src = "data:image/png;base64,"+responseString;
+
+  var ctx = outIm.getContext("2d");
+
+  var image = new Image();
+  image.onload = function() {
+      ctx.drawImage(image, 0, 0, SIZE*2, SIZE*2, 0, 0, 260, 260);
+  };
+  image.src = "data:image/jpeg;base64,"+responseString;
 }
 
 
