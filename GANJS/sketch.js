@@ -27,7 +27,7 @@ function setup() {
 
   //这里必须先设置一个currentimg，作为后面draw函数的输入
   //这里不是很明白，因为只要upload了，理论上就有currentImg了啊
-  inputImg = loadImage('images/blank.png', drawImage);
+  inputImg = loadImage('static/images/blank.png', drawImage);
   currentImg = inputImg;
 
 
@@ -35,99 +35,99 @@ function setup() {
   select('#color_0').mousePressed(function () {
     currentColor = color(13,56,230,100);
     label = '砖墙_Brick wall';
-    route = 'images/testimg/0.png';
-    // route = 'images/testimg/'+i; //route和画的label相关
+    route = 'static/images/testimg/0.png';
+    // route = 'static/images/testimg/'+i; //route和画的label相关
     thick = 2;
     transZ = 0;
   });
   select('#color_1').mousePressed(function () {
     currentColor = color(127,172,239,100);
     label = '木墙_Wooden wall';
-    route = 'images/testimg/1.png';
+    route = 'static/images/testimg/1.png';
     thick = 2;
     transZ = 0;
   });
   select('#color_2').mousePressed(function () {
     currentColor = color(153,0,2,100);
     label = '门_Door';
-    route = 'images/testimg/2.png';
+    route = 'static/images/testimg/2.png';
     thick = 1;
     transZ = 0;
   });
   select('#color_3').mousePressed(function () {
     currentColor = color(0,107,235,100);
     label = '窗_Window';
-    route = 'images/testimg/3.png';
+    route = 'static/images/testimg/3.png';
     thick = 1;
     transZ = -1; //设定窗户往后缩1个Z坐标
   });
   select('#color_4').mousePressed(function () {
     currentColor = color(27,235,203,100);
     label = '窗沿_Window head';
-    route = 'images/testimg/4.png';
+    route = 'static/images/testimg/4.png';
     thick = 2;
     transZ = 0;
   });
   select('#color_5').mousePressed(function () {
     currentColor = color(235,134,4,100);
     label = '层间线条_Layer';
-    route = 'images/testimg/5.png';
+    route = 'static/images/testimg/5.png';
     thick = 2;
     transZ = 1;
   });
   select('#color_6').mousePressed(function () {
     currentColor = color(235,63,1,100);
     label = '屋顶_Roof';
-    route = 'images/testimg/6.png';
+    route = 'static/images/testimg/6.png';
     thick = 1;
     transZ = 0;
   });
   select('#color_7').mousePressed(function () {
     currentColor = color(224,0,0,100);
     label = '柱子_Column';
-    route = 'images/testimg/7.png';
+    route = 'static/images/testimg/7.png';
     thick = 2;
     transZ = 1;
   });
   select('#color_8').mousePressed(function () {
     currentColor = color(0,184,234,100);
     label = '洞口_Opening';
-    route = 'images/testimg/8.png';
+    route = 'static/images/testimg/8.png';
     thick = 1;
     transZ = 0;
   });
   select('#color_9').mousePressed(function () {
     currentColor = color(136,79,192,100);
     label = '商店_Shop window';
-    route = 'images/testimg/9.png';
+    route = 'static/images/testimg/9.png';
     thick = 1;
     transZ = -1;//设定窗户往后缩1个Z坐标
   });
   select('#color_10').mousePressed(function () {
     currentColor = color(238,169,188,100);
     label = '山墙_Gable';
-    route = 'images/testimg/10.png';
+    route = 'static/images/testimg/10.png';
     thick = 5;
     transZ = 0;
   });
   select('#color_11').mousePressed(function () {
     currentColor = color(218,216,37,100);
     label = '装饰_decorate';
-    route = 'images/testimg/11.png';
+    route = 'static/images/testimg/11.png';
     thick = 1;
     transZ = 0;
   });
   select('#color_12').mousePressed(function () {
     currentColor = color(141,132,175,100);
     label = '牌匾_Billboard';
-    route = 'images/testimg/12.png';
+    route = 'static/images/testimg/12.png';
     thick = 1;
     transZ = 0.5;
   });
   select('#color_13').mousePressed(function () {
     currentColor = color(255, 255, 255,100);
     label = '背景_Background';
-    route = 'images/testimg/13.png';
+    route = 'static/images/testimg/13.png';
     thick = 0.5;
     transZ = -5;
   });
@@ -191,7 +191,7 @@ function setup() {
 
   //设置一个手动上传描绘底图的功能，路径需要修改
   uploadBtn.mousePressed(function () {
-     imgroute = 'images/labelinput.jpg';
+     imgroute = 'static/images/labelinput.jpg';
      inputImg = loadImage(imgroute, drawImage);
      currentImg = inputImg;
   });
@@ -547,7 +547,7 @@ function pixTex3Dpush(){
     label = labellist[i];
     const pixImg_name = 'pixImg_'+str(i)+'.jpg';
     route = 'http://127.0.0.1:8887//3Dmodel\\GANJS\\images\\labelcanvas/'+ pixImg_name;//用chrome web server做的本地服务器
-    // route =  'images/ACT (49).jpg';
+    // route =  'static/images/ACT (49).jpg';
     const width = shapes_coord[i][2];
     const height = shapes_coord[i][3];
 

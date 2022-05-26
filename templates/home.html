@@ -1,0 +1,100 @@
+<html>
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+<head>
+
+  <meta charset="UTF-8">
+  <title>Facade Program</title>
+
+    <!--  2DGANd的外接JS文件-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.min.js"></script>
+  <script src="https://unpkg.com/ml5@0.1.1/dist/ml5.min.js" type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three/examples/js/libs/stats.min.js"></script>
+  
+  
+  <link rel="stylesheet" href="static/style.css">
+
+</head>
+
+<body>
+
+<!--ONNX-->
+<!--  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>-->
+  <script src="static/sketch.js"></script>
+  <script src="static/test3D.js"></script>
+
+<!--左侧的输入画布-->
+  <div id="screen">
+      <button class="btn" id="startBtn">START</button>
+  </div>
+
+  <!-- MODEL 1 -->
+  <div>
+<!--<p id="status">Loading Model... Please wait...</p>-->
+    <div id="colors">
+      <div class="colors" id="color_0">
+        <p>砖墙_Brick wall</p>
+      </div>
+      <div class="colors" id="color_1">
+        <p>木墙_Wooden wall</p>
+      </div>
+      <div class="colors" id="color_2">
+        <p>门_Door</p>
+      </div>
+      <div class="colors" id="color_3">
+        <p>窗_Window</p>
+      </div>
+      <div class="colors" id="color_4">
+        <p>窗沿_Window head</p>
+      </div>
+      <div class="colors" id="color_5">
+        <p>层间线条_Layer</p>
+      </div>
+      <div class="colors" id="color_6">
+        <p>屋顶_Roof</p>
+      </div>
+      <div class="colors" id="color_7">
+        <p>柱子_Column</p>
+      </div>
+      <div class="colors" id="color_8">
+        <p>洞口_Opening</p>
+      </div>
+      <div class="colors" id="color_9">
+        <p>商店_Shop window</p>
+      </div>
+      <div class="colors" id="color_10">
+        <p>山墙_Gable</p>
+      </div>
+      <div class="colors" id="color_11">
+        <p>装饰_decorate</p>
+      </div>
+      <div class="colors" id="color_12">
+        <p>牌匾_Billboard</p>
+      </div>
+      <div class="colors" id="color_13">
+        <p>背景_Background</p>
+      </div>
+
+
+    </div>
+
+    <div id="input"> </div>
+    <canvas id="output"> </canvas>
+    <div id="buttons">
+      <button class="btn" id="cancelBtn">Cancel</button>
+      <button class="btn" id="uploadBtn">Upload</button>
+      <button class="btn" id="transferBtn">Transfer</button>
+      <button class="btn" id="clearBtn">Clear</button>
+    </div>
+
+
+  </div>
+  <div id="Stats-output"></div>
+  <div id="WebGL-output"></div>
+</body>
+
+</html>
