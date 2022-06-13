@@ -77,6 +77,7 @@ def prediction_payload():
 
 
 def piximagecutted():
+    # 读取模型生成图片
     img = cv2.imread("static/images/outimage.jpg")
     shapes_coords = request.json['shapes_coord']
     print(shapes_coords)
