@@ -52,7 +52,11 @@ def prediction_payload():
     
     out_img = util.tensor2im(model(input_tensor))
     print(out_img.shape)
-
+    # 在贴图的时候经常发生贴合错误，不在outputcanvas显示模型生成图像的问题，只会显示局部图像
+    # 3d图也会发生错乱的问题，经过debug发现size对应错误的问题，但是基于使用者data反馈
+    # 这个并非是100%发生，如果结果贴图产生问题建议将下面这句代码comment掉
+    
+    out_img = cv2.resize(out_img,None,fx=0.5, fy=0.5, interpolation = cv2.INTER_CUBIC)
 
     
     cv2.imwrite("static/images/outimage.jpg",out_img)
@@ -101,5 +105,5 @@ def piximagecutted():
 
 
 if __name__ == "__main__":
-    app.run(port=7020,debug=True)
+    app.run(port=6066,debug=True)
 
