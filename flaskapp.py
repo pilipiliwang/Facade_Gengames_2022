@@ -101,7 +101,8 @@ def piximagecutted():
 
 
 
-
+# 发现端口不同会发生一些问题，比如后续贴图的时候会出现重叠
+# 这个应该可以视作一个bug，但是需要更多的用户data是否是常见的内容
 if __name__ == "__main__":
     app.run(port=1089,debug=True)
 
