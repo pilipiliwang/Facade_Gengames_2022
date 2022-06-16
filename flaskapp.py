@@ -54,7 +54,7 @@ def prediction_payload():
     print(out_img.shape)
     
     # 可能用不到
-    # out_img = cv2.resize(out_img,None,fx=0.5, fy=0.5, interpolation = cv2.INTER_CUBIC)
+    out_img = cv2.resize(out_img,None,fx=0.5, fy=0.5, interpolation = cv2.INTER_CUBIC)
 
     
     cv2.imwrite("static/images/outimage.jpg",out_img)
